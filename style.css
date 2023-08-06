@@ -159,3 +159,8 @@ form.search-button input[type=text] {
   margin: 0 auto;
 }
 
+/* Style the footer */
+.github {
+  text-align: center;
+  font-size: 10px;
+}
