@@ -1,14 +1,13 @@
 /* Style the weather box */
 .card {
-    width: 50rem; 
-    height: 30rem; 
-    border-radius: 10px;
-    background-color: #e3ebfd;
-    border-color: #e3ebfd;
-    display: block;
-    padding: auto;
-    margin: 0 auto;
-    margin-top: 20px;
+  width: 50rem;
+  height: 30rem;
+  border-radius: 10px;
+  background-color: #e3ebfd;
+  border-color: #e3ebfd;
+  margin: 20px auto; /* Use margin auto to center the card horizontally */
+  display: block;
+  padding: auto;
 }
 
 /* Style the date */
@@ -16,8 +15,9 @@
   padding: 10px;
   color: #101319;
   font-size: 12px;
-  position: fixed;
-  text-align: right;
+  position: absolute;
+  top: 10px;
+  left: 10px;
 }
 
 /* Style the search field */
@@ -57,23 +57,21 @@ form.search-button input[type=text] {
   }
 
   /* Style the next day button */
-  .day-search-button {
-    background: #c9dcf300;
-    max-width: 75px;
-    aspect-ratio: 1/1;
-    height: 75px;
-    border-radius: 50%;
-    position: relative;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-    font-size: 12px;
-    top: -120px;
-    border: 1px solid #e3ebfd;
-    display: block;
-    margin: 0 auto;
-  }
-  
+.day-search-button {
+  background: #c9dcf300;
+  max-width: 75px;
+  aspect-ratio: 1/1;
+  height: 75px;
+  border-radius: 50%;
+  align-items: center;
+  text-align: center;
+  font-size: 12px;
+  border: 1px solid #c9dcf300;
+  display: block;
+  margin: 0 auto;
+  color: aliceblue;
+}
+
 /* Style the popup */
   .popup {
     font-size: 12px;
@@ -124,26 +122,22 @@ form.search-button input[type=text] {
   top: 40px;
 }
 
-/* Style the day of the week & emoji */
-.dayWeek .emoji {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  text-align: center;
-  display: block;
-  margin: 0 auto;
-}
-
 /* Style the rows */
 .row {
   vertical-align: middle;
   max-width: 50rem;
 }
 
-/* Style the columns */
-.days {
+/* Style the bubbles container */
+.bubbles-container {
+  position: absolute;
+  bottom: 180px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Style the bubbles */
+.bubbles {
   background: #c9dcf3;
   max-width: 75px;
   aspect-ratio: 1/1;
@@ -152,11 +146,27 @@ form.search-button input[type=text] {
   position: relative;
   align-items: center;
   text-align: center;
-  padding: 20px;
+  padding: 5px;
   font-size: 12px;
-  top: -120px;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 0 auto;
+}
+
+/* Style the day of the week */
+.dayWeek {
+  text-align: center;
+  display: block;
+  margin-top: 1px;
+  font-size: 12px;
+}
+
+/* Style the emoji */
+.emoji {
+  font-size: 24px;
+  margin-bottom: 1px;
 }
 
 /* Style the footer */
