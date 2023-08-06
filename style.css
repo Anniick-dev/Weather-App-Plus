@@ -5,7 +5,7 @@
   border-radius: 10px;
   background-color: #e3ebfd;
   border-color: #e3ebfd;
-  margin: 20px auto; /* Use margin auto to center the card horizontally */
+  margin: 10px auto;
   display: block;
   padding: auto;
 }
