@@ -1,0 +1,161 @@
+/* Style the weather box */
+.card {
+    width: 50rem; 
+    height: 30rem; 
+    border-radius: 10px;
+    background-color: #e3ebfd;
+    border-color: #e3ebfd;
+    display: block;
+    padding: auto;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+/* Style the date */
+.date {
+  padding: 10px;
+  color: #101319;
+  font-size: 12px;
+  position: fixed;
+  text-align: right;
+}
+
+/* Style the search field */
+form.search-button {
+  display: block;
+  margin: 0 auto;
+  margin-left: 30%;
+  padding: 10px;
+}
+
+form.search-button input[type=text] {
+  padding: 10px;
+  font-size: 12px;
+  border: 1px solid #e3ebfd;
+  border-radius: 10px;
+  float: left;
+  width: 80%;
+  background: rgba(255, 255, 255, 0.7);
+  text-align: left;
+  width: 250px;
+}
+
+  /* Style the submit button of search */
+  form.search-button button {
+    padding: 5px;
+    background: #e3ebfd;
+    color: #e3ebfd;
+    font-size: 12px;
+    border: 1px solid #e3ebfd;
+  }
+  
+  /* Clear floats */
+  form.search-button::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  /* Style the next day button */
+  .day-search-button {
+    background: #c9dcf300;
+    max-width: 75px;
+    aspect-ratio: 1/1;
+    height: 75px;
+    border-radius: 50%;
+    position: relative;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+    top: -120px;
+    border: 1px solid #e3ebfd;
+    display: block;
+    margin: 0 auto;
+  }
+  
+/* Style the popup */
+  .popup {
+    font-size: 12px;
+    color: #636466;
+    background: #f3f8fe;
+    border-radius: 10%;
+    width: 250px;
+    height: 120px;
+    display:block;
+    position: relative;
+    align-items: center;
+    text-align: center;
+    padding: 22px;
+    margin-left: 25%;
+    margin-top: 25%;
+  }
+  
+/* Style the date & details underneath city */
+
+  .todayDetails {
+    margin-left: 20px;
+    margin-top: 30%;
+  }
+
+/* Style the city */
+  .cityName {
+    font-size: 24px;
+    text-transform: capitalize;
+    color: #9551f7;
+  }
+
+/* Style the temperature, rain & wind */
+.cityName.tempElement {
+    position: relative;
+    top: -20px;
+    font-size: 12px;
+  }
+
+.cityName.visibility {
+    position: relative;
+    left: -25px;
+    top: 10px; 
+    }
+
+.cityName.wind {
+  position: relative;
+  left: -50px;
+  top: 40px;
+}
+
+/* Style the day of the week & emoji */
+.dayWeek .emoji {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Style the rows */
+.row {
+  vertical-align: middle;
+  max-width: 50rem;
+}
+
+/* Style the columns */
+.days {
+  background: #c9dcf3;
+  max-width: 75px;
+  aspect-ratio: 1/1;
+  height: 75px;
+  border-radius: 50%;
+  position: relative;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  font-size: 12px;
+  top: -120px;
+  display: block;
+  margin: 0 auto;
+}
+
