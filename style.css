@@ -49,6 +49,13 @@ form.search-button {
   border-radius: 10px;
 }
 
+form.search-button:hover {
+  border-color: #8daded;
+  border-style: dotted;
+  border-width: 2px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
 form.search-button input[type=text] {
   padding: 10px;
   font-size: 12px;
