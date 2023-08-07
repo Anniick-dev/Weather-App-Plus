@@ -114,7 +114,7 @@ form.search-button input[type=text] {
     text-align: center;
     padding: 22px;
     margin-left: 25%;
-    margin-top: 25%;
+    margin-top: 15%;
   }
 
   .popup:hover {
@@ -127,7 +127,7 @@ form.search-button input[type=text] {
 
   .todayDetails {
     margin-left: 20px;
-    margin-top: 30%;
+    margin-top: 15%;
   }
 
 /* Style the city */
