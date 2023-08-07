@@ -41,7 +41,7 @@ function formatDate(date) {
   ]
   let month = months[monthIndex];
 
-  return `${day}, ${month} ${dateNumber}, ${hours}:${minutes}`;
+  return `${day}, ${month} ${dateNumber} | ${hours}:${minutes}`;
 }
 
 // function to search for specific city //
