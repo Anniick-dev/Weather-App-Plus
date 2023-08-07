@@ -108,7 +108,7 @@ let currentTime = new Date();
 dateElement.innerHTML = formatDate(currentTime);
 
 // push through search //
-let searchForm = document.querySelector("#city-search");
+let searchForm = document.querySelector("form");
 searchForm.addEventListener("submit", handleSubmit);
   
 // find current location //
