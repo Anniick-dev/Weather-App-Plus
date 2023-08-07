@@ -8,6 +8,7 @@
   margin: 10px auto;
   display: block;
   padding: auto;
+  
 }
 
 /* Style the date */
@@ -37,7 +38,7 @@ form.search-button input[type=text] {
   width: 80%;
   background: rgba(255, 255, 255, 0.7);
   text-align: left;
-  width: 250px;
+  width: auto;
 }
 
   /* Style the submit button of search */
@@ -47,6 +48,13 @@ form.search-button input[type=text] {
     color: #e3ebfd;
     font-size: 12px;
     border: 1px solid #e3ebfd;
+    margin-left: 1px;
+  }
+
+  .input-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
   
   /* Clear floats */
