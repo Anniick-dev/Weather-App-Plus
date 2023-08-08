@@ -10,7 +10,7 @@
         <title>Annick's Weather App</title>
       </head>
     <body>
-        <div class="container px-8">
+        <div class="container">
             <div class="card">
                 <span class= "date" id="date">  </span>
                     <form class="search-button">
@@ -26,7 +26,7 @@
                                     autofocus="on">
                                     </div>
                                     </div>
-                            <div class="col-3">
+                            <div class="col-2">
                                 <div class="buttons">
                             <button 
                                 type="submit" 
@@ -44,83 +44,104 @@
                     </form>
                     
                     <div class="row">
-                        <div class="col">
-                            <div class="todayDetails">
-                                <img src="" alt="Clear" id="icon" />
-                                <h1 class="cityName" id="city"></h1>
+                        <div class="col-3 temperature d-flex justify-content-center">
+                            <img src="" alt="Clear" id="icon" />
+                            <br/>
                             <span class="tempElement" id="temperature"></span>
-                            
+                            <br/>
+                            <div class="row">
                             <span class="temperatureUnits">
+                                <br/>
                                 <a href="#" id="cel-conversion">°C</a> / 
                                 <a href="#" id="fah-conversion">°F</a>
                               </span>
+                            </div>
+                              </div>
+                        <div class="col-3">
+                            <div class="todayDetails">
+                                <h1 class="cityName" id="city"></h1>
+                            
+                            
+                            
                               <br/>
                             <small>Humidity: <span class="hum" id="hum"></span>%</small>
                             <br/>
                             <small>Wind: <span class="wind" id="wind"></span> km/h </small>
-                                
-                        </br>
+                            </div>
                         </div>
-                        </div>
-                        <div class="col">
-                            <h5 class="popup" id="description">                                
-                                
+                        <div class="col-4">
+                            <h5 class="popup" id="description">
                             </h5> 
                         </div>
                         </div>
                         </div>
                     </div>
 
-                    <div class="row no-gutters col-8 mx-auto bubbles-container">
+                    <div class="row g-0 col-10 bubbles-container">
 
                         <!-- Monday -->
+                        <div class="col d-flex justify-content-center">
                         <button class="bubbles">
                         <span class="emoji">☀️</span>
                         <span class="dayWeek">Mon</span>
                         </button>
-                        
-                    
+                    </div>
+                                          
                         <!-- Tuesday -->
+                        <div class="col d-flex justify-content-center">
                         <button class="bubbles">
                         <span class="emoji">☀️</span>
                         <span class="dayWeek">Tue</span>
-                    </button>
-                        
-                    
+                        </button>
+                    </div>
+                             
                         <!-- Wednesday -->
+                        <div class="col d-flex justify-content-center">
                         <button class="bubbles">
                         <span class="emoji">☀️</span>
                         <span class="dayWeek">Wed</span>
-                    </button>
+                        </button>
+                    </div>
                     
                         <!-- Thursday -->
+                        <div class="col d-flex justify-content-center">
                         <button class="bubbles">
                         <span class="emoji">☀️</span>
                         <span class="dayWeek">Thu</span>
-                    </button>
+                        </button>
+                    </div>
                     
                         <!-- Friday -->
+                        <div class="col d-flex justify-content-center">
                         <button class="bubbles">
                         <span class="emoji">☀️</span>
                         <span class="dayWeek">Fri</span>
-                    </button>
+                        </button>
+                    </div>
                     
                         <!-- Saturday -->
+                        <div class="col d-flex justify-content-center">
                         <button class="bubbles">
                         <span class="emoji">☀️</span>
                         <span class="dayWeek">Sat</span>
-                    </button>
+                        </button>
+                    </div>
                     
                         <!-- Sunday -->
+                        <div class="col d-flex justify-content-center">
                         <button class="bubbles">
                         <span class="emoji">☀️</span>
                         <span class="dayWeek">Sun</span>
-                    </button>
-                    
-                        <button class="bubbles">
-                            <span class="emoji">→</span>
                         </button>
-                        </div>
+                    </div>
+                                               
+                        <!-- Arrow -->
+                        <div class="col d-flex justify-content-center">
+                        <button class="bubbles">
+                        <span class="emoji">→</span>
+                        </button>
+                    </div>
+                    </div>
 
                     </div>
 

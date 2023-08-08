@@ -19,7 +19,7 @@ body {
 
 /* Style the weather box */
 .card {
-  width: 50rem;
+  width: 60rem;
   height: 30rem;
   border-radius: 10px;
   background-color: #e3ebfd;
@@ -106,7 +106,7 @@ form.search-button input[type=text] {
     border-radius: 10%;
     width: 250px;
     height: 120px;
-    display:block;
+    display: block;
     position: relative;
     align-items: center;
     text-align: center;
@@ -123,8 +123,19 @@ form.search-button input[type=text] {
   
 /* Style the date & details underneath city */
 
-  .todayDetails {
-    margin-left: 20px;
+.temperature {
+  margin-left: 10px;
+  margin-top: 40px;
+  font-size: 30px;
+  align-items: center;
+}
+
+.temperatureUnits {
+ font-size: 10px;
+}
+
+.todayDetails {
+  margin-top: 60px;
   }
 
 /* Style the city */
@@ -153,19 +164,10 @@ form.search-button input[type=text] {
   top: 40px;
 }
 
-/* Style the rows */
-.row {
-  vertical-align: middle;
-  max-width: 50rem;
-}
-
 /* Style the bubbles container */
 .bubbles-container {
   position: absolute;
-  bottom: 140px;
-  left: 50%;
-  transform: translateX(-50%);
-  
+  bottom: 150px;
 }
 
 /* Style the bubbles */
@@ -177,7 +179,6 @@ form.search-button input[type=text] {
   border-radius: 50%;
   position: relative;
   align-items: center;
-  text-align: center;
   padding: 5px;
   display: flex;
   flex-direction: column;
@@ -186,7 +187,6 @@ form.search-button input[type=text] {
   margin: 0 auto;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
   border: 1px solid #c9dcf300;
-
 }
 
 .bubbles:hover {
