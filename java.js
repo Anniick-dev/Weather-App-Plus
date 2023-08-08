@@ -79,8 +79,15 @@ function getCurrentLocation(event) {
     document.querySelector("#description").innerHTML = response.data.weather[0].description;
     document.querySelector("#hum").innerHTML = response.data.main.humidity;
     document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
-    document.querySelector("#icon").setAttribute("src", 'https://openweathermap.org/img/wn/10d@2x.png');
-  }
+    document.querySelector("#icon").setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
+    document.querySelector("#icon").setAttribute(
+      "alt", response.data.weather[0].description);
+    iconElement.setAttribute();
+  
+    getForecast(response.data.coord)  }
 
 // function from Cel to Fah //
 function convertToFah(event) {
