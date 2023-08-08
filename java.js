@@ -79,6 +79,7 @@ function getCurrentLocation(event) {
     document.querySelector("#description").innerHTML = response.data.weather[0].description;
     document.querySelector("#hum").innerHTML = response.data.main.humidity;
     document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
+    document.querySelector("#icon").setAttribute("src", 'https://openweathermap.org/img/wn/10d@2x.png');
   }
 
 // function from Cel to Fah //
@@ -100,7 +101,6 @@ function convertToFah(event) {
   
   let celConversion = document.querySelector("#cel-conversion");
   celConversion.addEventListener("click", convertToCel);
-
 
 // calculate date //
 let dateElement = document.querySelector("#date");
