@@ -68,13 +68,14 @@ form.search-button input[type=text] {
 
   /* Style the submit button of search */
   form.search-button button {
-    padding: 2px;
+    padding: 1px;
     background: #e3ebfd;
     color: #e3ebfd;
     font-size: 12px;
     border: 1px solid #e3ebfd;
     margin-left: 1px;
     border-radius: 10px;
+    margin-top: 15px;
   }
 
   .input-group {
