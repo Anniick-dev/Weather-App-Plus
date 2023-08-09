@@ -131,6 +131,18 @@ form.search-button input[type=text] {
     border-style: dotted;
     border-width: thin;
   }
+
+  .myRow {
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Style the city */
+  .cityName {
+    font-size: 36px;
+    text-transform: capitalize;
+    color: #9551f7;
+  }
   
 /* Style the date & details underneath city */
 
@@ -146,33 +158,22 @@ form.search-button input[type=text] {
 }
 
 .todayDetails {
-  margin-top: 60px;
+  margin-top: 30px;
+  margin-left: 30px;
   }
 
-/* Style the city */
-  .cityName {
-    font-size: 24px;
-    text-transform: capitalize;
-    color: #9551f7;
+  /* Style the main image */
+  .main-image {
+    size: 30%;
+    padding: 0;
   }
 
-/* Style the temperature, rain & wind */
-.cityName.tempElement {
-    position: relative;
-    top: -20px;
-    font-size: 12px;
-  }
 
-.cityName.visibility {
-    position: relative;
-    left: -25px;
-    top: 10px; 
-    }
 
-.cityName.wind {
-  position: relative;
-  left: -50px;
-  top: 40px;
+/* Style the temperature, humidity & wind */
+.wind, .hum {
+  left: 300px;
+  top: 10px;
 }
 
 /* Style the bubbles container */
@@ -263,7 +264,7 @@ form.search-button input[type=text] {
   left: 30px;
   right: 0;
   bottom: 0;
-  background-color: #d3a6f4;
+  background-color: #a6d2f4;
   -webkit-transition: .4s;
   transition: .4s;
   border-radius: 34px;

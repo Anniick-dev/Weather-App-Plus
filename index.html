@@ -20,7 +20,7 @@
                                 </label>
                                 <div class="switch-text">Celsius --- Fahrenheit</div>
                             </div>
-                            <div class="col-6"> 
+                            <div class="col-6 m-0"> 
                                 <form class="search-button">
                                 <div class="input-group">
                                     <input 
@@ -32,7 +32,7 @@
                                     autofocus="on">
                                     </div>
                                     </div>
-                            <div class="col-2 m-0">
+                            <div class="col-1 m-0">
                             <button 
                                 type="submit" 
                                 id="city-search"
@@ -54,30 +54,18 @@
 
                         </div>
                     
-                    <div class="row">
-                        <div class="col-3 temperature d-flex justify-content-center">
-                            <img src="" alt="Clear" id="icon" />
-                            <br/>
-                            <span class="tempElement" id="temperature"></span>
-                            <br/>
-                            <div class="row">
-                            <span class="temperatureUnits"> &degC
-                              </span>
-                            </div>
-                              </div>
-                        <div class="col-3">
-                            <div class="todayDetails">
+                    <div class="row myRow">
+                        <div class="col-5 todayDetails">
                                 <h1 class="cityName" id="city"></h1>
-                            
-                            
-                            
-                              <br/>
+                                <img src="" class="main-image" alt="Clear" id="icon" />
+                            <span class="tempElement" id="temperature"></span>
+                            <span class="temperatureUnits">&degC</span>
+                            <br/>
                             <small>Humidity: <span class="hum" id="hum"></span>%</small>
                             <br/>
                             <small>Wind: <span class="wind" id="wind"></span> km/h </small>
-                            </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-6">
                             <h5 class="popup" id="description">
                             </h5> 
                         </div>
