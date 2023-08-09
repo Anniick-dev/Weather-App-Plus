@@ -76,14 +76,16 @@ function getCurrentLocation(event) {
   function showWeather(response) {
     document.querySelector("#city").innerHTML = response.data.name;
     let celsiusTemperature = response.data.main.temp;
+    let minTemp = response.data.main.temp_min;
+    let maxTemp = response.data.main.temp_max;
+    let descriptionText = response.data.weather[0].description;
     document.querySelector("#temperature").innerHTML = Math.round(celsiusTemperature);
-    document.querySelector("#description").innerHTML = response.data.weather[0].description;
+    document.querySelector("#description").innerHTML = `It is a day filled with ${descriptionText} & a minimum temperature of ${minTemp} and a maximum of ${maxTemp}. Enjoy!`;
     document.querySelector("#hum").innerHTML = response.data.main.humidity;
     document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
     document.querySelector("#icon").setAttribute(
       "src",
-      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-    );
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
     document.querySelector("#icon").setAttribute(
       "alt", response.data.weather[0].description);
     iconElement.setAttribute();
