@@ -90,28 +90,6 @@ function getCurrentLocation(event) {
   
     getForecast(response.data.coord)  }
 
-// function from Cel to Fah //
-function displayFahrenheitTemperature(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-}
-
-  // function Cel //
-function displayCelsiusTemperature(event) {
-  event.preventDefault();
-  celsiusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
-}
-
-let celsiusTemperature = null;
-
 // calculate date //
 let dateElement = document.querySelector("#date");
 let currentTime = new Date();
@@ -127,14 +105,23 @@ currentLocationButton.addEventListener("click", getCurrentLocation);
 
 searchCity("New York");
 
-// show Fahrenheit //
-let fahrenheitLink = document.querySelector("#fah-conversion");
-fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+// Get slider to do something //
+function updateTemperatureUnits() {
+  let temperatureElement = document.querySelector("#temperature");
+  let unitToggle = document.querySelector(".switch-control-input");
 
-// show Celsius //
-let celsiusLink = document.querySelector("#cel-conversion");
-celsiusLink.addEventListener("click", displayCelsiusTemperature);
+  if (unitToggle.checked) {
+    // Fahrenheit to Celsius conversion
+    let fahrenheitTemperature = parseFloat(temperatureElement.textContent);
+    let celsiusTemperature = ((fahrenheitTemperature - 32) * 5) / 9;
+    temperatureElement.textContent = Math.round(celsiusTemperature);
+  } else {
+    // Celsius to Fahrenheit conversion
+    let celsiusTemperature = parseFloat(temperatureElement.textContent);
+    let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+    temperatureElement.textContent = Math.round(fahrenheitTemperature);
+  }
+}
 
-
-
-
+var unitToggle = document.querySelector(".switch-control-input");
+unitToggle.addEventListener("change", updateTemperatureUnits);

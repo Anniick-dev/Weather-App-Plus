@@ -52,8 +52,8 @@ form.search-button {
 form.search-button:hover {
   border-color: #8daded;
   border-style: dotted;
-  border-width: 2px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  border-width: 1px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 form.search-button input[type=text] {
@@ -80,12 +80,10 @@ form.search-button input[type=text] {
 
   .city-button-search {
     padding: 1px;
-    background: #e3ebfd00;
-    color: #e3ebfd;
     font-size: 12px;
     border: 1px solid #e3ebfd;
     margin-top: 15px;
-    text-align: left;
+    box-align: left;
   }
 
   .input-group {
@@ -231,7 +229,7 @@ form.search-button input[type=text] {
   transform: translateX(-50%);
 }
 
-/* Slider *?
+/* Slider */
 /* The switch - the box around the slider */
 .switch {
   position: relative;
@@ -243,10 +241,8 @@ form.search-button input[type=text] {
 .switch-text {
   position: relative;
   display: inline-block;
-  width: 60px;
-  height: 34px;
+  left: 15px;
   font-size: 8px;
-  left: 15px
 }
 
 /* Hide default HTML checkbox */
@@ -261,12 +257,13 @@ form.search-button input[type=text] {
   position: absolute;
   cursor: pointer;
   top: 15px;
-  left: 10px;
+  left: 15px;
   right: 0;
   bottom: 0;
   background-color: #ccc;
   -webkit-transition: .4s;
   transition: .4s;
+  border-radius: 34px;
 }
 
 .slider:before {
@@ -279,6 +276,7 @@ form.search-button input[type=text] {
   background-color: white;
   -webkit-transition: .4s;
   transition: .4s;
+  border-radius: 50%;
 }
 
 input:checked + .slider {
@@ -295,11 +293,23 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
+/* Additional styling for temperature units */
+.temperatureUnits {
+  font-size: 14px;
+  margin-top: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.slider.round:before {
-  border-radius: 50%;
+.temperatureUnits a {
+  text-decoration: none;
+  color: #555;
+  margin: 0 6px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.temperatureUnits a.active {
+  color: #9c21f3;
 }
