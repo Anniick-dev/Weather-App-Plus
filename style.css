@@ -72,18 +72,21 @@ form.search-button input[type=text] {
     background: #e3ebfd;
     color: #e3ebfd;
     font-size: 12px;
-    border: 1px solid #e3ebfd;
+    border: 1px solid #e3ebfd00;
     margin-left: 1px;
     border-radius: 10px;
     margin-top: 15px;
   }
 
-  .city-button-search {
+  .vergrootglas,
+  .pindrop {
     padding: 1px;
     font-size: 12px;
-    border: 1px solid #e3ebfd;
-    margin-top: 15px;
-    box-align: left;
+    border: 1px solid #e3ebfd00;
+    background-color: transparent; /* Set background color to transparent */
+    margin-top: 18px;
+    border-radius: 10px;
+    margin-left: 0px;
   }
 
   .input-group {
