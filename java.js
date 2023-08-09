@@ -109,19 +109,26 @@ searchCity("New York");
 function updateTemperatureUnits() {
   let temperatureElement = document.querySelector("#temperature");
   let unitToggle = document.querySelector(".switch-control-input");
+  let temperatureUnitsElement = document.querySelector(".temperatureUnits");
 
   if (unitToggle.checked) {
-    // Fahrenheit to Celsius conversion
-    let fahrenheitTemperature = parseFloat(temperatureElement.textContent);
-    let celsiusTemperature = ((fahrenheitTemperature - 32) * 5) / 9;
-    temperatureElement.textContent = Math.round(celsiusTemperature);
-  } else {
     // Celsius to Fahrenheit conversion
     let celsiusTemperature = parseFloat(temperatureElement.textContent);
     let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
     temperatureElement.textContent = Math.round(fahrenheitTemperature);
+
+    temperatureUnitsElement.innerHTML = "&deg;F";
+    
+
+  } else {
+    // Fahrenheit to Celsius conversion
+    let fahrenheitTemperature = parseFloat(temperatureElement.textContent);
+    let celsiusTemperature = ((fahrenheitTemperature - 32) * 5) / 9;
+    temperatureElement.textContent = Math.round(celsiusTemperature);
+    
+    temperatureUnitsElement.innerHTML = "&deg;C";
   }
-}
+  }
 
 var unitToggle = document.querySelector(".switch-control-input");
 unitToggle.addEventListener("change", updateTemperatureUnits);
