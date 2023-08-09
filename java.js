@@ -76,8 +76,8 @@ function getCurrentLocation(event) {
   function showWeather(response) {
     document.querySelector("#city").innerHTML = response.data.name;
     let celsiusTemperature = response.data.main.temp;
-    let minTemp = response.data.main.temp_min;
-    let maxTemp = response.data.main.temp_max;
+    let minTemp = Math.round(response.data.main.temp_min);
+    let maxTemp = Math.round(response.data.main.temp_max);
     let descriptionText = response.data.weather[0].description;
     document.querySelector("#temperature").innerHTML = Math.round(celsiusTemperature);
     document.querySelector("#description").innerHTML = `It is a day filled with ${descriptionText} & a minimum temperature of ${minTemp} and a maximum of ${maxTemp}. Enjoy!`;
@@ -112,6 +112,7 @@ function updateTemperatureUnits() {
   let temperatureElement = document.querySelector("#temperature");
   let unitToggle = document.querySelector(".switch-control-input");
   let temperatureUnitsElement = document.querySelector(".temperatureUnits");
+  
 
   if (unitToggle.checked) {
     // Celsius to Fahrenheit conversion

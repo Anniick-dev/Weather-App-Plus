@@ -136,39 +136,46 @@ form.search-button input[type=text] {
     padding: 0;
     margin: 0;
   }
-  
+
   /* Style the city */
   .cityName {
     font-size: 36px;
     text-transform: capitalize;
     color: #9551f7;
+    margin-left: 10px;
+  }
+
+  /* Style the image */
+  .main-image {
+    width: 80px;
+    height: 80px;
   }
   
 /* Style the date & details underneath city */
-
-.temperature {
-  margin-left: 10px;
-  margin-top: 40px;
+.tempElement {
   font-size: 30px;
-  align-items: center;
+  color:#8daded;
 }
 
 .temperatureUnits {
- font-size: 10px;
+  font-size: 16px;
+  display: inline-block;
+}
+
+#temperature {
+  margin-left: 10px;
+  font-size: 60px;
+}
+
+.temperature-icon {
+  display: flex;
+  align-items: center;
 }
 
 .todayDetails {
   margin-top: 30px;
   margin-left: 30px;
   }
-
-  /* Style the main image */
-  .main-image {
-    size: 30%;
-    padding: 0;
-  }
-
-
 
 /* Style the temperature, humidity & wind */
 .wind, .hum {
@@ -297,23 +304,4 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
-/* Additional styling for temperature units */
-.temperatureUnits {
-  font-size: 14px;
-  margin-top: 4px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
-.temperatureUnits a {
-  text-decoration: none;
-  color: #555;
-  margin: 0 6px;
-  cursor: pointer;
-  transition: color 0.3s;
-}
-
-.temperatureUnits a.active {
-  color: #9c21f3;
-}
