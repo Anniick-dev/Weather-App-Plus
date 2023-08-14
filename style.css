@@ -231,8 +231,21 @@ form.search-button input[type=text] {
 .dayWeek {
   text-align: center;
   display: block;
-  margin-top: 1px;
+  margin-top: 40px;
   font-size: 12px;
+}
+
+.dateWeek {
+  text-align: center;
+  display: block;
+  margin-top: 40px;
+  font-size: 12px;
+  color: #8e8f90;
+}
+
+.dayWeek-container {
+  position: absolute;
+  bottom: 125px;
 }
 
 /* Style the emoji */
