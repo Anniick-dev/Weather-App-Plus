@@ -44,9 +44,29 @@ function formatDate(date) {
   return `${day}, ${month} ${dateNumber} | ${hours}:${minutes}`;
 }
 
+// function to search for specific day & date //
+function getForecastDay(day) {
+  let apiKey = "200963c15c1efe0974c1ad82c30a1e8a";
+  let apiURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+  axios.get(apiURL).then(showForecastDay);  
+  }
+
+  function showForecastDay (response) {
+    document.querySelector("#dayWeek").innerHTML = response.data.temp.day;
+  }
+
+  function getForecastDate (date) {
+    let apiKey = "200963c15c1efe0974c1ad82c30a1e8a";
+    let apiURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+    axios.get(apiURL).then(showForecastDate);  
+    }
+
+  function showForecastDate (response) {
+    document.querySelector("#dateWeek").innerHTML = response.data.dt;
+  }
+
 // function to search for specific city //
-function searchCity(city) {
-  
+function searchCity(city) { 
   let apiKey = "200963c15c1efe0974c1ad82c30a1e8a";
   let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiURL).then(showWeather);  
