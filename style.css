@@ -167,6 +167,18 @@ form.search-button input[type=text] {
   font-size: 60px;
 }
 
+.forecastTemperature {
+  font-size: 10px;
+  margin-top: 0px;
+}
+#minTemp {
+  color: #a9aaac;
+}
+
+#maxTemp {
+  color: #1f1f20;
+}
+
 .temperature-icon {
   display: flex;
   align-items: center;
@@ -226,7 +238,7 @@ form.search-button input[type=text] {
 /* Style the emoji */
 .emoji {
   font-size: 16px;
-  margin-bottom: 1px;
+  margin-bottom: 0px;
 }
 
 /* Style the footer */
