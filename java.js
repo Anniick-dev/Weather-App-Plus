@@ -132,38 +132,50 @@ function updateTemperatureUnits() {
   let unitToggle = document.querySelector(".switch-control-input");
   let temperatureUnitsElement = document.querySelector(".temperatureUnits");
   let windElement = document.querySelector("#wind");
-  let windUnitElement = document.querySelector(".windUnit")
+  let windUnitElement = document.querySelector(".windUnit");
   
+  let minTempElement = document.querySelector("#minTemp");
+  let maxTempElement = document.querySelector("#maxTemp");
 
   if (unitToggle.checked) {
     // Celsius to Fahrenheit conversion
     let celsiusTemperature = parseFloat(temperatureElement.textContent);
     let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
     temperatureElement.textContent = Math.round(fahrenheitTemperature);
-
     temperatureUnitsElement.innerHTML = "&deg;F";
 
     let windCelsius = parseFloat(windElement.textContent);
     let windFahrenheit = (windCelsius * 0.621371);
-    windElement.textContent= Math.round(windFahrenheit);
-    
+    windElement.textContent = Math.round(windFahrenheit);
     windUnitElement.innerHTML = "m/h";
 
+    let minCelsiusTemperature = parseFloat(minTempElement.textContent);
+    let maxCelsiusTemperature = parseFloat(maxTempElement.textContent);
+    let minFahrenheitTemperature = (minCelsiusTemperature * 9) / 5 + 32;
+    let maxFahrenheitTemperature = (maxCelsiusTemperature * 9) / 5 + 32;
+    minTempElement.textContent = Math.round(minFahrenheitTemperature);
+    maxTempElement.textContent = Math.round(maxFahrenheitTemperature);
   } else {
     // Fahrenheit to Celsius conversion
     let fahrenheitTemperature = parseFloat(temperatureElement.textContent);
     let celsiusTemperature = ((fahrenheitTemperature - 32) * 5) / 9;
     temperatureElement.textContent = Math.round(celsiusTemperature);
-    
     temperatureUnitsElement.innerHTML = "&deg;C";
 
     let windFahrenheit = parseFloat(windElement.textContent);
-    let windCelsius = windFahrenheit / 0.386102;
-    windElement.textContent= Math.round(windCelsius);
-    
+    let windCelsius = windFahrenheit / 0.621371;
+    windElement.textContent = Math.round(windCelsius);
     windUnitElement.innerHTML = "km/h";
+
+    let minFahrenheitTemperature = parseFloat(minTempElement.textContent);
+    let maxFahrenheitTemperature = parseFloat(maxTempElement.textContent);
+    let minCelsiusTemperature = ((minFahrenheitTemperature - 32) * 5) / 9;
+    let maxCelsiusTemperature = ((maxFahrenheitTemperature - 32) * 5) / 9;
+    minTempElement.textContent = Math.round(minCelsiusTemperature);
+    maxTempElement.textContent = Math.round(maxCelsiusTemperature);
   }
-  }
+}
+
 
 var unitToggle = document.querySelector(".switch-control-input");
 unitToggle.addEventListener("change", updateTemperatureUnits);
