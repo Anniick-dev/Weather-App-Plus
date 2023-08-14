@@ -131,6 +131,8 @@ function updateTemperatureUnits() {
   let temperatureElement = document.querySelector("#temperature");
   let unitToggle = document.querySelector(".switch-control-input");
   let temperatureUnitsElement = document.querySelector(".temperatureUnits");
+  let windElement = document.querySelector("#wind");
+  let windUnitElement = document.querySelector(".windUnit")
   
 
   if (unitToggle.checked) {
@@ -140,7 +142,12 @@ function updateTemperatureUnits() {
     temperatureElement.textContent = Math.round(fahrenheitTemperature);
 
     temperatureUnitsElement.innerHTML = "&deg;F";
+
+    let windCelsius = parseFloat(windElement.textContent);
+    let windFahrenheit = (windCelsius * 0.621371);
+    windElement.textContent= Math.round(windFahrenheit);
     
+    windUnitElement.innerHTML = "m/h";
 
   } else {
     // Fahrenheit to Celsius conversion
@@ -149,6 +156,12 @@ function updateTemperatureUnits() {
     temperatureElement.textContent = Math.round(celsiusTemperature);
     
     temperatureUnitsElement.innerHTML = "&deg;C";
+
+    let windFahrenheit = parseFloat(windElement.textContent);
+    let windCelsius = windFahrenheit / 0.386102;
+    windElement.textContent= Math.round(windCelsius);
+    
+    windUnitElement.innerHTML = "km/h";
   }
   }
 
