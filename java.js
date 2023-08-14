@@ -89,9 +89,8 @@ function getCurrentLocation(event) {
     document.querySelector("#icon").setAttribute(
       "alt", response.data.weather[0].description);
     iconElement.setAttribute();
-  
-    getForecast(response.data.coord)  }
 
+    }
 // calculate date //
 let dateElement = document.querySelector("#date");
 let currentTime = new Date();
