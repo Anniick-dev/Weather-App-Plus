@@ -45,76 +45,76 @@ function formatDate(date) {
 }
 
 // function to search for specific day & date //
-function getForecastDay(day) {
-  let apiKey = "200963c15c1efe0974c1ad82c30a1e8a";
-  let apiURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
-  axios.get(apiURL).then(showForecastDay);  
-  }
+function getForecastDay(latitude, longitude) {
+  let apiKey = "f97e6oa7271ce6b46a866b531489t0f6";
+  let apiURL = `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric&cnt=5`; // cnt=5 for 5-day forecast
+  axios.get(apiURL).then(displayForecast);
+}
 
-  function displayForecast(response) {
-    console.log(response.data.daily);
-    let forecastElement = document.querySelector("#forecast");
-  
-    let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
-  
-    let forecastHTML = `<div class="row col-10 g-0 d-flex justify-content-center">`;
-    
-    response.data.daily.forEach(function (dayData) {
-      let timestamp = dayData.dt * 1000; // Convert timestamp to milliseconds
+function displayForecast(response) {
+  console.log(response.data.list);
+  let forecastElement = document.querySelector("#forecast");
+
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  let forecastHTML = `<div class="row col-10 g-0 d-flex justify-content-center">`;
+
+  response.data.list.forEach(function (dayData) {
+    let timestamp = dayData.dt * 1000; // Use the timestamp from the data
     let date = new Date(timestamp);
-    let dayName = days[date.getDay()]; // Get day name
+    let dayName = days[date.getDay()];
 
     let minTemp = Math.round(dayData.temp.min);
     let maxTemp = Math.round(dayData.temp.max);
     let iconCode = dayData.weather[0].icon;
 
-          forecastHTML =
-        forecastHTML +
-        `
+    forecastHTML +=
+      `
+      <div>
         <span class="bubbles">
-        <span class="emoji">${getWeatherEmoji(iconCode)}</span>
-        <span class="forecastTemperature">
-          <span class="minTemp">${minTemp}</span> |
-          <span class="maxTemp">${maxTemp}</span>
+          <span class="emoji">${getWeatherEmoji(iconCode)}</span>
+          <span class="forecastTemperature">
+            <span class="minTemp">${minTemp}</span> |
+            <span class="maxTemp">${maxTemp}</span>
+          </span>
         </span>
-      </span>
-      <span class="dayWeek">${dayName}</span>
+        <span class="dayWeek">${dayName}</span>
       </div>
       `;
-      });
+  });
 
-      forecastHTML = forecastHTML + `</div>`;
+  forecastHTML += `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
 
 function getForecast(coordinates) {
   console.log(coordinates);
-  let apiKey = "200963c15c1efe0974c1ad82c30a1e8a";
-  let apiURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.latitude}&lon=${coordinates.longitude}&appid=${apiKey}&units=metric`;
+  let apiKey = "f97e6oa7271ce6b46a866b531489t0f6";
+  let apiURL = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
   axios.get(apiURL).then(displayForecast);
 }
-
 
 // function to search for specific city //
 function searchCity(city) { 
   let apiKey = "200963c15c1efe0974c1ad82c30a1e8a";
-  let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiURL = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiURL).then(showWeather);  
 
   }
 
-  // function to search for city //
+ // function to search for city //
 function handleSubmit(event) {
-  event.preventDefault() 
+  event.preventDefault(); 
   let city = document.querySelector("#city-input").value;
   searchCity(city);
-  }
+}
 
-  function searchLocation(position) {
-  let apiKey = "200963c15c1efe0974c1ad82c30a1e8a";
-  let apiURL = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`; 
+function searchLocation(position) {
+  let apiKey = "f97e6oa7271ce6b46a866b531489t0f6";
+  let apiURL = `https://api.shecodes.io/weather/v1/current?lon=${position.coords.longitude}&lat=${position.coords.latitude}&key=${apiKey}&units=metric`;
+  
   axios.get(apiURL).then(showWeather);  
-  }
+}
 
   // function for current position //
 function getCurrentLocation(event) {
@@ -124,24 +124,26 @@ function getCurrentLocation(event) {
 
   // showWeather //
   function showWeather(response) {
-    document.querySelector("#city").innerHTML = response.data.name;
-    let celsiusTemperature = response.data.main.temp;
-    let minTemp = Math.round(response.data.main.temp_min);
-    let maxTemp = Math.round(response.data.main.temp_max);
-    let descriptionText = response.data.weather[0].description;
+    document.querySelector("#city").innerHTML = response.data.city;
+    let celsiusTemperature = Math.round(response.data.temperature.current);
+    let minTemp = Math.round(response.data.temperature.minimum);
+    let maxTemp = Math.round(response.data.temperature.maximum);
+    let descriptionText = response.data.condition.description;
     document.querySelector("#temperature").innerHTML = Math.round(celsiusTemperature);
     document.querySelector("#description").innerHTML = `It is a day filled with ${descriptionText} & a minimum temperature of ${minTemp} and a maximum of ${maxTemp}. Enjoy!`;
-    document.querySelector("#hum").innerHTML = response.data.main.humidity;
+    document.querySelector("#hum").innerHTML = response.data.humidity;
     document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
-    document.querySelector("#icon").setAttribute(
-      "src",
-      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
-    document.querySelector("#icon").setAttribute(
-      "alt", response.data.weather[0].description);
-      iconElement.setAttribute("alt", response.data.weather[0].description);
-      getForecast(response.data.coord);
+    
+    let iconElement = document.querySelector("#icon");
+    iconElement.setAttribute(
+        "src",
+        `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`);
+    iconElement.setAttribute(
+        "alt", response.data.condition.description);
+    
+    getForecast(response.data.coord);
+}
 
-    }
 // calculate date //
 let dateElement = document.querySelector("#date");
 let currentTime = new Date();
