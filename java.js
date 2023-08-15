@@ -51,19 +51,42 @@ function getForecastDay(day) {
   axios.get(apiURL).then(showForecastDay);  
   }
 
-  function showForecastDay (response) {
-    document.querySelector("#dayWeek").innerHTML = response.data.temp.day;
-  }
+  function displayForecast(response) {
+    console.log(response.data.daily);
+    let forecastElement = document.querySelector("#forecast");
+  
+    let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  
+    let forecastHTML = `<div class="row col-10 g-0 d-flex justify-content-center">`;
+    days.forEach(function (day) {
+      forecastHTML =
+        forecastHTML +
+        `
+                              <span class="bubbles">
+                                <span class="emoji">☀️</span>
+                                <span class="forecastTemperature">
+                                  <span id="minTemp">8</span> |
+                                  <span id="maxTemp">18</span>
+                                </span>
+                              </span>
+                          
+                           <span class="dayWeek">Mon | Aug 2</span>
+                          
+                          </div>
+        `;
+      });
 
-  function getForecastDate (date) {
-    let apiKey = "200963c15c1efe0974c1ad82c30a1e8a";
-    let apiURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
-    axios.get(apiURL).then(showForecastDate);  
-    }
+      forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 
-  function showForecastDate (response) {
-    document.querySelector("#dateWeek").innerHTML = response.data.dt;
-  }
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "200963c15c1efe0974c1ad82c30a1e8a";
+  let apiURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+  axios.get(apiURL).then(displayForecast);
+}
+
 
 // function to search for specific city //
 function searchCity(city) { 
@@ -108,7 +131,8 @@ function getCurrentLocation(event) {
       `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
     document.querySelector("#icon").setAttribute(
       "alt", response.data.weather[0].description);
-    iconElement.setAttribute();
+      iconElement.setAttribute("alt", response.data.weather[0].description);
+      getForecast(response.data.coord);
 
     }
 // calculate date //
