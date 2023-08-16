@@ -52,27 +52,25 @@ function getForecastDay(latitude, longitude) {
 }
 
 function displayForecast(response) {
-  console.log(response.data.list);
   let forecastElement = document.querySelector("#forecast");
 
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-  let forecastHTML = `<div class="row col-10 g-0 d-flex justify-content-center">`;
+  let forecastHTML = `<div class="row g-0 d-flex justify-content-center">`;
 
-  response.data.list.forEach(function (dayData) {
-    let timestamp = dayData.dt * 1000; // Use the timestamp from the data
+  response.data.daily.forEach(function (dayData) {
+    let timestamp = dayData.time * 1000; // Use the timestamp from the data
     let date = new Date(timestamp);
     let dayName = days[date.getDay()];
 
-    let minTemp = Math.round(dayData.temp.min);
-    let maxTemp = Math.round(dayData.temp.max);
-    let iconCode = dayData.weather[0].icon;
+    let minTemp = Math.round(dayData.temperature.minimum);
+    let maxTemp = Math.round(dayData.temperature.maximum);
 
     forecastHTML +=
       `
-      <div>
+      <div class="col">
         <span class="bubbles">
-          <span class="emoji">${getWeatherEmoji(iconCode)}</span>
+          <img src="${dayData.condition.icon_url}" width=40px/>
           <span class="forecastTemperature">
             <span class="minTemp">${minTemp}</span> |
             <span class="maxTemp">${maxTemp}</span>
@@ -96,7 +94,7 @@ function getForecast(coordinates) {
 
 // function to search for specific city //
 function searchCity(city) { 
-  let apiKey = "200963c15c1efe0974c1ad82c30a1e8a";
+  let apiKey = "fbef01f4et1b02o0d25c27210a43ef3f";
   let apiURL = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiURL).then(showWeather);  
 
@@ -141,7 +139,7 @@ function getCurrentLocation(event) {
     iconElement.setAttribute(
         "alt", response.data.condition.description);
     
-    getForecast(response.data.coord);
+    getForecast(response.data.coordinates);
 }
 
 // calculate date //
@@ -208,7 +206,6 @@ function updateTemperatureUnits() {
     maxTempElement.textContent = Math.round(maxCelsiusTemperature);
   }
 }
-
 
 var unitToggle = document.querySelector(".switch-control-input");
 unitToggle.addEventListener("change", updateTemperatureUnits);
