@@ -69,13 +69,13 @@ function displayForecast(response) {
     forecastHTML +=
       `
       <div class="col">
-        <span class="bubbles">
+        <button class="bubbles">
           <img src="${dayData.condition.icon_url}" width=40px/>
           <span class="forecastTemperature">
             <span class="minTemp">${minTemp}</span> |
             <span class="maxTemp">${maxTemp}</span>
           </span>
-        </span>
+        </button>
         <span class="dayWeek">${dayName}</span>
       </div>
       `;
