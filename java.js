@@ -76,8 +76,8 @@ function displayForecast(response) {
         <button class="bubbles">
           <img src="${dayData.condition.icon_url}" width=40px/>
           <span class="forecastTemperature">
-            <span class="minTemp">${minTemp}</span> |
-            <span class="maxTemp">${maxTemp}</span>
+            <span class="minTemp" id="minTemp">${minTemp}</span> |
+            <span class="maxTemp" id="maxTemp">${maxTemp}</span>
           </span>
         </button>
         <span class="dayWeek">${dayName} | <span class="dateWeek"> ${month} ${day}</span></span>
@@ -194,7 +194,7 @@ function updateTemperatureUnits() {
     let maxFahrenheitTemperature = (maxCelsiusTemperature * 9) / 5 + 32;
     minTempElement.textContent = Math.round(minFahrenheitTemperature);
     maxTempElement.textContent = Math.round(maxFahrenheitTemperature);
-  } else {
+    } else {
     // Fahrenheit to Celsius conversion
     let fahrenheitTemperature = parseFloat(temperatureElement.textContent);
     let celsiusTemperature = ((fahrenheitTemperature - 32) * 5) / 9;
@@ -212,7 +212,7 @@ function updateTemperatureUnits() {
     let maxCelsiusTemperature = ((maxFahrenheitTemperature - 32) * 5) / 9;
     minTempElement.textContent = Math.round(minCelsiusTemperature);
     maxTempElement.textContent = Math.round(maxCelsiusTemperature);
-  }
+}
 }
 
 var unitToggle = document.querySelector(".switch-control-input");
