@@ -59,9 +59,13 @@ function displayForecast(response) {
   let forecastHTML = `<div class="row g-0 d-flex justify-content-center">`;
 
   response.data.daily.forEach(function (dayData) {
-    let timestamp = dayData.time * 1000; // Use the timestamp from the data
+    let timestamp = dayData.time * 1000;
     let date = new Date(timestamp);
     let dayName = days[date.getDay()];
+
+ // Get month and day from the date //
+ let month = date.toLocaleString("default", { month: "short" });
+ let day = date.getDate();
 
     let minTemp = Math.round(dayData.temperature.minimum);
     let maxTemp = Math.round(dayData.temperature.maximum);
@@ -76,7 +80,7 @@ function displayForecast(response) {
             <span class="maxTemp">${maxTemp}</span>
           </span>
         </button>
-        <span class="dayWeek">${dayName}</span>
+        <span class="dayWeek">${dayName} | <span class="dateWeek"> ${month} ${day}</span></span>
       </div>
       `;
   });
@@ -128,7 +132,11 @@ function getCurrentLocation(event) {
     let maxTemp = Math.round(response.data.temperature.maximum);
     let descriptionText = response.data.condition.description;
     document.querySelector("#temperature").innerHTML = Math.round(celsiusTemperature);
-    document.querySelector("#description").innerHTML = `It is a day filled with ${descriptionText} & a minimum temperature of ${minTemp} and a maximum of ${maxTemp}. Enjoy!`;
+    document.querySelector("#description").innerHTML = `It is a day filled with ${descriptionText} & a minimum temperature of ${minTemp} and a maximum of ${maxTemp}. <small>
+    Humidity: <span class="hum" id="hum"></span>%
+<br/>
+Wind: <span class="wind" id="wind"></span>
+<span class="windUnit">km/h</span> Enjoy!`;
     document.querySelector("#hum").innerHTML = response.data.temperature.humidity;
     document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
     
