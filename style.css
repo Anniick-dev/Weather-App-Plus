@@ -198,7 +198,7 @@ form.search-button input[type=text] {
 /* Style the bubbles container */
 .weather-forecast {
   position: absolute;
-  bottom: 175px;
+  bottom: 125px;
   margin: 10px;
   padding: 10px;
 }

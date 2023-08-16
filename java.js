@@ -129,7 +129,7 @@ function getCurrentLocation(event) {
     let descriptionText = response.data.condition.description;
     document.querySelector("#temperature").innerHTML = Math.round(celsiusTemperature);
     document.querySelector("#description").innerHTML = `It is a day filled with ${descriptionText} & a minimum temperature of ${minTemp} and a maximum of ${maxTemp}. Enjoy!`;
-    document.querySelector("#hum").innerHTML = response.data.humidity;
+    document.querySelector("#hum").innerHTML = response.data.temperature.humidity;
     document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
     
     let iconElement = document.querySelector("#icon");
